@@ -1,0 +1,11 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TesteBlogAgio {
+
+	public static void main(String[] args) {
+		System.setProperties("ChromeDriver", "C:\Users\Usuário\driver\ChromeDriver.exe");
+		WebDriver driver = ChromeDriver;
+		driver.get("https://blogdoagi.com.br/");
+	}
+}

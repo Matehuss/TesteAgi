@@ -1,0 +1,31 @@
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import com.sun.tools.*;
+
+public class TesteBlogAgio {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		String pesquisa = "Flamengo";
+		driver.get("https://blogdoagi.com.br/");
+		Thread.sleep(3000);
+		driver.findElement(By.id("search-open")).click();
+		driver.findElement(By.xpath("//*[@id=\"masthead\"]/div[1]/div[2]/form/label/input")).
+		sendKeys(pesquisa);
+		driver.findElement(By.xpath("//*[@id=\"masthead\"]/div[1]/div[2]/form/input")).click();
+		Thread.sleep(3000);
+		WebElement procura = driver.findElement(By.xpath("//*[@id=\"primary\"]/section/div/form/label/input[@value=\""+pesquisa+"\"]"));
+		Assert.assertEquals(pesquisa, procura.getText());
+		
+		WebElement resultado = driver.findElement(By.xpath("//*[@id=\"primary\"]/section/header/h1"));
+		Assert.assertEquals("Nenhum resultado", resultado.getText());
+
+
+	
+		driver.close();
+	}
+}
+

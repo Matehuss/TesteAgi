@@ -1,0 +1,35 @@
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class TesteInexistente2 {
+	
+	private WebDriver driver;
+
+	@Before
+	public void inicializa() throws InterruptedException{
+		String pesquisa = "Cenário de teste inexistente";
+		driver.get("https://blogdoagi.com.br/");
+		Thread.sleep(3000);
+		driver.findElement(By.id("search-open")).click();
+		driver.findElement(By.xpath("//*[@id=\"masthead\"]/div[1]/div[2]/form/label/input")).
+		sendKeys(pesquisa);
+		driver.findElement(By.xpath("//*[@id=\"masthead\"]/div[1]/div[2]/form/input")).click();
+		Thread.sleep(3000);
+		WebElement procura = driver.findElement(By.xpath("//*[@id=\"primary\"]/header/h1/span"));
+		
+		Assert.assertEquals(procura.getText(), pesquisa);
+	}
+	
+	@After
+	public void finaliza(){
+		driver.quit();
+	}
+
+}

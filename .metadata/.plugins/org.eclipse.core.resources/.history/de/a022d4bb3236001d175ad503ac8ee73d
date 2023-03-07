@@ -1,0 +1,9 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TesteBlogAgio {
+
+	public static void main(String[] args) {
+		WebDriver driver = ChromeDriver;
+	}
+}

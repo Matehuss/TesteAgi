@@ -1,0 +1,27 @@
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import com.sun.tools.*;
+
+public class Teste {
+
+		
+		public WebDriver driver1 = new ChromeDriver();
+		String URL = "https://www.google.com";
+
+		driver1.get(URL);
+		
+		driver1.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+		WebElement element = driver1.findElement(By.name("q"));
+		element.sendKeys("Selenium Driver");
+		element.submit();
+		
+		System.out.println("Wepbpage gets loaded successfully!!");
+
+}
+
